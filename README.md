@@ -1,6 +1,25 @@
 # gotor
 A lightweight and simplistic Tor library for golang
 
+```bash
+go get github.com/ripmeep/gotor
+```
+
 ```go
 import "github.com/ripmeep/gotor"
+```
+
+# Usage
+```go
+tor := TorConnection{"127.0.0.1", 9050, 9051} // TorConnection{tor host, SOCKS5 port, Control Port}
+tor_con, err := tor.Connect("example.org", 80)
+
+// Now you can use tor_con as a normal net.Dial socket!
+/* do stuff.... */
+
+tor.Refresh("your tor password") // Replace with your control port password
+
+// Now you have a new IP! //
+
+tor_con, err := tor.Connect("8.8.8.8", 53) // It can also work with IPs!
 ```
