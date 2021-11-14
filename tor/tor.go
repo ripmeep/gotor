@@ -26,8 +26,8 @@ func (t TorConnection) Connect(host string, port int) (net.Conn, error) {
 		return nil, err
 	}
 
-	sport := uint16(port) // CONVERT INTEGER TO UINT16 (SHORT) FOR NETWORK USAGE
-	init := "\x05\x01\x00" // SOCKS5, ONE AUTH, NO AUTHENTICATION
+	sport := uint16(port) // Convert integer to uint16 (short) for network usage
+	init := "\x05\x01\x00" // SOCKS5, one auth
 	reply := make([]byte, 64)
 	var tor_ok byte = 0
 
@@ -43,10 +43,10 @@ func (t TorConnection) Connect(host string, port int) (net.Conn, error) {
 
 	binary.BigEndian.PutUint16(ptns, sport)
 
-	host_req := "\x05\x01\x00\x03"
+	host_req := "\x05\x01\x00\x03" // Connect
 	host_req += string(len(host))
-	host_req += host
-	host_req += string(ptns)
+	host_req += host // Host
+	host_req += string(ptns) // Port
 
 	con.Write([]byte(host_req))
 	con.Read(reply)
