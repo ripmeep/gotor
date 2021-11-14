@@ -8,6 +8,12 @@ import (
 	"github.com/ripmeep/gotor/tor"
 )
 
+func checkError(e error) {
+	if e != nil {
+		log.Fatal(e)
+	}
+}
+
 func main() {
 	host := "ident.me"
 	port := 80
@@ -15,9 +21,7 @@ func main() {
 	tor := tor.TorConnection { "127.0.0.1", 9050, 9051 } // Tor host, SOCKS5 port, Control Port
 	tor_con, err := tor.Connect(host, port)
 
-	if err != nil {
-		log.Fatal(err)
-	}
+	checkError(err)
 
 	fmt.Printf("Connected to %s:%d through Tor service (%s:%d)\n", host, port, tor.Host, tor.SocksPort)
 
@@ -46,9 +50,7 @@ func main() {
 
 	tor_con, err = tor.Connect(host, port)
 
-	if err != nil {
-		log.Fatal(err)
-	}
+	checkError(err)
 
 	fmt.Printf("Connected to %s:%d through Tor service (%s:%d)\n", host, port, tor.Host, tor.SocksPort)
 
