@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 	"strings"
-	"github.com/ripmeep/gotor"
+	"github.com/ripmeep/gotor/tor"
 )
 
 func main() {
