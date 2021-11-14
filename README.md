@@ -27,7 +27,7 @@ t.Refresh("your tor password")
   ok, err = t.Refresh("your tor password")
 */
 
-// Now you have a new IP! //
+// Now you have a new IP!
 
 tor_con, err = t.Connect("8.8.8.8", 53) // It can also work with IPs!
 ```
