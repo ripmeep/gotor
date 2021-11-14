@@ -18,6 +18,7 @@ tor_con, err := t.Connect("example.org", 80)
 /* do stuff.... */
 
 t.Refresh("your tor password") 
+
 /* 
   Replace with your control port password
   t.Refresh() will return (bool, error)
