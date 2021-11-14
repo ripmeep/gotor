@@ -4,7 +4,7 @@
 	GitHub:    https://github.com/ripmeep/
 */
 
-package tor
+package gotor
 
 import (
 	"net"
