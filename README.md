@@ -17,7 +17,14 @@ tor_con, err := t.Connect("example.org", 80)
 // Now you can use tor_con as a normal net.Dial socket!
 /* do stuff.... */
 
-t.Refresh("your tor password") // Replace with your control port password
+t.Refresh("your tor password") 
+/* 
+  Replace with your control port password
+  t.Refresh() will return (bool, error)
+  If bool = false, the fresh failed and the error will be not be nil
+  
+  ok, err = t.Refresh("your tor password")
+*/
 
 // Now you have a new IP! //
 
