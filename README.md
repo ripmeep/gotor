@@ -11,7 +11,7 @@ import "github.com/ripmeep/gotor"
 
 # Usage
 ```go
-t := tor.TorConnection{"127.0.0.1", 9050, 9051} // TorConnection{tor host, SOCKS5 port, Control Port}
+t := tor.TorConnection{"127.0.0.1", 9050, 9051} // tor host, SOCKS5 port, Control Port
 tor_con, err := t.Connect("example.org", 80)
 
 // Now you can use tor_con as a normal net.Dial socket!
